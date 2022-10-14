@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package weather.v1;
+
+option go_package = "github.com/Bamboocho007/go-grps/gen/go/weather/v1;weatherpb";
+
+message GetWeatherRequest {
+  string country = 2;
+  string city = 3;
+  int32 degrees = 4;
+}
+
+message GetWeatherResponse {
+  string id = 1;
+  string country = 2;
+  string city = 3;
+  int32 degrees = 4;
+}
+
+message PutWeatherRequest {
+  string country = 2;
+  string city = 3;
+  int32 degrees = 4;
+}
+
+message PutWeatherResponse {
+  string id = 1;
+  string country = 2;
+  string city = 3;
+  int32 degrees = 4;
+}
+
+message DeleteWeatherRequest {
+  string id = 1;
+}
+
+message DeleteWeatherResponse {}
+
+service WeatherStoreService {
+  rpc GetWeather(GetWeatherRequest) returns (GetWeatherResponse) {}
+  rpc PutWeather(PutWeatherRequest) returns (PutWeatherResponse) {}
+  rpc DeleteWeather(DeleteWeatherRequest) returns (DeleteWeatherResponse) {}
+}
