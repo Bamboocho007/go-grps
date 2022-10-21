@@ -22,7 +22,6 @@ func run() error {
 		return fmt.Errorf("failed to connect to WeatherStoreService on %s: %w", connectTo, err)
 	}
 	log.Println("Connected to", connectTo)
-
 	weatherStore := weatherpb.NewWeatherStoreServiceClient(conn)
 	if _, err := weatherStore.PutWeather(context.Background(), &weatherpb.PutWeatherRequest{
 		City:    "New Yourk",

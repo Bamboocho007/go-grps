@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package beats.v1;
+
+option go_package = "github.com/Bamboocho007/go-grps/gen/go/beats/v1;beatspb";
+
+message BeatsStreamRequest {
+  uint32 id = 1;
+}
+
+message BeatsStreamResponse {
+  uint32 id = 1;
+}
+
+service BeatsStreamingService {
+  rpc BeatsStream(BeatsStreamRequest) returns (stream BeatsStreamResponse) {}
+}
